@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<!--Mirar README.md-->
+
 <div class="superior">
     <form action="crearUsuario.php" method="post">  
         <fieldset>
