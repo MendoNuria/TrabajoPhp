@@ -53,9 +53,9 @@ echo "<hr>";
 
 
 $hoy = date("Y-m-d");
-$edad_diff = date_diff(date_create($fechaNacimiento), date_create($hoy)) ;
+$edad = date_diff(date_create($fechaNacimiento), date_create($hoy)) ;
 
-echo "$nombre tiene una edad de " .$edad_diff->format('%y') . " años.";
+echo "$nombre tiene una edad de " .$edad->format('%y') . " años.";
 echo "<br>";
 
 
