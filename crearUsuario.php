@@ -9,7 +9,7 @@
 <body>
     <?php
 
-            //usuario y contraseña que llegan del formulario
+            //Datos que llegan del formulario
             $baseDatos = $_POST["baseDatos"];
             $tabla = $_POST["tabla"];
             $nombre     = $_POST["usuario"];
@@ -40,7 +40,7 @@ if (!$conexion) {
 }   
 
 
-$insertar = "INSERT INTO ".$tabla." (nombre, fechaNac, color)
+$insertar = "INSERT INTO ".$nombreTablaBD." (nombre, fechaNac, color)
 VALUES (\"$nombre\", \"$fechaNacimiento\", \"$color\")";
 
 
@@ -91,8 +91,11 @@ $mesEspanol = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
 
 $diaEspanol = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
-echo "El usuario se ha guardado en la bases de datos llamada " . $baseDatos . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
+echo "El usuario se ha guardado en la bases de datos llamada " . $nombreBD . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
+echo "<br>";
 
+// DUDA 
+//echo "El usuario se ha guardado en la bases de datos llamada " . $baseDatos  . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 
 echo "<br>";
 echo "<hr>";
