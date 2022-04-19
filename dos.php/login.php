@@ -28,17 +28,19 @@
 $conexion = mysqli_connect("localhost", "nuria", "nuria", "trabajo") or
 die("Problemas con la conexión");
 
+/////////////////////  ERROR    ARREGLAR  ////////////////////////7
+
 $registros = mysqli_query($conexion, "SELECT nombre, fechanac, color FROM $nombreTablaBD ") 
 or die("El usuario " . $nombre . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>"
 . mysqli_error($conexion));
 //or die("El usuario " . $nombre . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>");
 
 
+////////////////////////////////////////////////////////////////////////////////7
+
 
 while ($reg=mysqli_fetch_array($registros))
 {
-
-   
 
 echo "<p> <center>  El usuario " . $reg['nombre'] . " nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
 //////////////////////     HOROSCOPO             //////////////////////////
@@ -53,11 +55,7 @@ $mes = substr($reg['fechanac'],-5, 2);
     //$dia=date("d", substr($_POST["fechaNac"], -2, 2 ));
     //$mes=date("m", substr( $_POST["fechaNac"],-5, 2));
 
-   //   $zodiaco = ''; 
-    
-        //$dia = date ("d"); 
-        //$mes = date ("m");
-       // list ( $dia, $mes) = explode ( "-", $fechaNacimiento );
+ 
     
           if (($mes == 1 && $dia > 19)  || ($mes == 2 && $dia < 19)) {
             echo  "<p><center> El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Acuario".  "</center>". "</p>";
@@ -112,9 +110,9 @@ $mes = substr($reg['fechanac'],-5, 2);
 
          echo "<br>";
          echo "<br>";
-
+///////////////////////////////////   COLOR /////////////////
           echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-         // return $zodiaco; //  CONTROLAR ESTE RETURN
+         // return $zodiaco; //  CONTROLAR ESTE RETURN <-----------
      
          echo "<br>";
 
