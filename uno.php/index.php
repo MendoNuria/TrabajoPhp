@@ -27,7 +27,7 @@
 <br><br>
 <br><br><br><br>
     <div class="inferior">
-        <form action="login.php" method="post">
+        <form action="login1.php" method="post">
             <fieldset>
                 <legend> <h3> Consulta datos usuario</h3> </legend>
                     <label> Escribe tu nombre de usuario:<p> <input type="text" name="usuario" placeholder="Pon tu nombre"></p></label>

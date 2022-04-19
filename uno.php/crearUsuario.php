@@ -40,17 +40,17 @@ if (!$conexion) {
 }   
 
 
-$insertar = "INSERT INTO ".$nombreTablaBD." (nombre, fechaNac, color)
+$insertar = "INSERT INTO ".$nombreTablaBD." (nombre, fechanac, color)
 VALUES (\"$nombre\", \"$fechaNacimiento\", \"$color\")";
 
 
 if (mysqli_query($conexion, $insertar)) {
-    echo "<p> El usuario $nombre ha sido perfectamente creado</p>";
+    echo "<p> El usuario $nombre se ha creado correctamente.</p>";
 } else {
     echo "<h1>Error en insercción de usuario: " . $insertar . "<br>" . mysqli_error($conexion). "</h1>";
 }
 echo "<hr>";
-
+////////////////////////////////      AÑOS DEL USUARIO         ///////////////////////////////////////////
 
 $hoy = date("Y-m-d");
 $edad = date_diff(date_create($fechaNacimiento), date_create($hoy)) ;
@@ -58,7 +58,7 @@ $edad = date_diff(date_create($fechaNacimiento), date_create($hoy)) ;
 echo "$nombre tiene una edad de " .$edad->format('%y') . " años.";
 echo "<br>";
 
-
+////////////////////////////////      FECHA DE HOY           ///////////////////////////////////////////
 //----------------------------------------
 // Definir primero la zona horaria   https://www.php.net/manual/es/timezones.php
 //Array para traducir el mes al español

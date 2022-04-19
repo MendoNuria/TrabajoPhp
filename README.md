@@ -53,9 +53,19 @@ MariaDB [trabajo]> select * from datos;
 +--------+------------+---------+
 1 row in set (0.001 sec)
 
+//////////////////////////////////// FECHAS //////////////////////////////////////////////////
 
 Hay que tener en cuanta Hay una gran diferencia entre / y - cuando se usa como divisor al formatear una fecha, si el separador es un / entonces se asume el formato americano m/d/y; y si el divisor es un -, entonces se asume el formato europeo d-m-y. Para evitar la ambigüedad, se recomienda utilizar las fechas ISO 8601 (YYYY-MM-DD).
+<?php
+echo date("jS F, Y", strtotime("11.12.10"));
+// outputs 10th December, 2011
 
+echo date("jS F, Y", strtotime("11/12/10"));
+// outputs 12th November, 2010
+
+echo date("jS F, Y", strtotime("11-12-10"));
+// outputs 11th December, 2010 
+?>
 
 
 

@@ -22,7 +22,61 @@
 11. Sagitario (22 de noviembre — 21 de diciembre)    -> $mes == 11  $dia > 22        $mes == 12   $dia < 21
 12. Capricornio (22 de diciembre — 19 de enero)      -> $mes == 12  $dia > 22        $mes == 1   $dia < 19
 
-
+if(($DIA>=21 && $MES=="ABRIL") || ($DIA<=20 && $MES=="MAYO"))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"TAURO";
+}
+if(($DIA>=21 && $MES=="MAYO") || ($DIA<=21 && $MES=="JUNIO"))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"GEMINIS";
+}
+if(($DIA>=21 && $MES=="JUNIO") || ($DIA<=20 && $MES=="JULIO"))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"CANCER";
+}
+if(($DIA>=21 && $MES=="JULIO") || ($DIA<=21 && $MES=="AGOSTO"))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"LEO";
+}
+if(($DIA>=22 && $MES=="AGOSTO") || ($DIA<=22 && $MES=="SEPTIEMBRE"))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"VIRGO";
+}
+if(($DIA>=23 && $MES==9) || ($DIA<=22 && $MES==10))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"LIBRA";
+}
+if(($DIA>=23 && $MES==10) || ($DIA<=22 && $MES==11))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"ESCORPIO";
+}
+if(($DIA>=23 && $MES==11) || ($DIA<=20 && $MES==12))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"SAGITARIO";
+}
+if(($DIA>=21 && $MES==12) || ($DIA<=19 && $MES==1))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"CAPRICORNIO";
+}
+if(($DIA>=20 && $MES==1) || ($DIA<=18 && $MES==2))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"ACUARIO";
+}
+if(($DIA>=19 && $MES==2) || ($DIA<=20 && $MES==3))
+{echo "SU SIGNO ES:";
+ echo"<br>";
+ echo"PISCIS";
+}
 
 -->
 </body>
