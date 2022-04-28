@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <?php    
@@ -26,26 +27,27 @@ $baseDatos = $_POST["baseDatos"];
     $conexion = mysqli_connect("localhost", $usuarioBD, $contrasenaBD,  $nombreBD);
     
     
-    $registros = mysqli_query($conexion, "SELECT * FROM  datos WHERE nombre = '$usuario' ");
+    $registros = mysqli_query($conexion, "SELECT * FROM  datos WHERE nombre = '$usuario'");
    // or die("El usuario " . $usuario . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>"
    // . mysqli_error($conexion));
 
-    $nr = mysqli_num_rows($registros);
+
+   //////////////////////// LOGIN DEL USUARIO INTRODUCIDO
+    $registrarse = mysqli_num_rows($registros);
         
-        if ($nr == 1){
+        if ($registrarse == 1){
       //  echo "Bienvenido: " . $usuario;
       echo "<p> <center>  El usuario " . $usuario . " nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
-          }elseif ($nr == 0)
+          }elseif ($registrarse == 0)
             echo "<p> <center> El usuario " . $usuario . " no se encuentra registrado <br>  <br> <img src='./imagenes/llorando.jpeg'> . </center> . </p>  ";
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 while ($reg=mysqli_fetch_array($registros))
 {
 
-//echo "<p> <center>  El usuario " . $reg['nombre'] . " nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
 //////////////////////     HOROSCOPO             //////////////////////////
 
 $dia = substr($reg['fechanac'], -2, 2 );
@@ -65,7 +67,7 @@ $mes = substr($reg['fechanac'],-5, 2);
             echo "<br>";
             echo "<center><img src='./imagenes/acuario.jpg'> ";
           } elseif (($mes == 2 && $dia > 18)  || ($mes == 3 && $dia < 21)) {
-            echo  "<p><center> El usuario  $usuariotiene el siguiente signo zodiaco de " . $zodiaco = "Piscis" .  "</center>". "</p>" ;
+            echo  "<p><center> El usuario  $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Piscis" .  "</center>". "</p>" ;
             echo "<br>";
             echo "<center><img src='./imagenes/piscis.jpg'> ";
           } elseif (($mes == 3 && $dia > 20)  || ($mes == 4 && $dia < 20)) {
@@ -110,25 +112,29 @@ $mes = substr($reg['fechanac'],-5, 2);
             echo "<p><center> <img src='./imagenes/capricornio.jpg'> </center> </p>";
           }
 
-
+        
          echo "<br>";
          echo "<br>";
 ///////////////////////////////////   COLOR /////////////////
+$color = ($reg['color']);
+echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
 
-
-if ($color == "rojo") {
+if ($reg['color'] == "rojo") {
+  echo " <p class = 'rojo' >Este parrafo es de color rojo  </p>";
+  
+  echo "<center> Su color preferido es el " . "<p class = 'rojo'>". $reg['color'] . "</p>" . "</center> ". "<br>";
+} else if ($reg['color'] == "azul") {
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-} else if ($color == "azul") {
+} else if ($reg['color'] == "verde") {
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-} else if ($color == "verde") {
+} else if ($reg['color'] == "marron") {
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-} else if ($color == "marron") {
+} else if ($reg['color'] == "naranja") {
+  echo "<p style='color: $reg[color]'>  $color  </p>";
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-} else if ($color == "naranja") {
+} else if ($reg['color'] == "amarillo") {
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-} else if ($color == "amarillo") {
-  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-} else if ($color == "rosa") {
+} else if ($reg['color'] == "rosa") {
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
 }
 
@@ -147,8 +153,8 @@ echo "<hr>";
 echo "<br>";
 echo "<hr>";
 
-}
 
+}
 
 
 

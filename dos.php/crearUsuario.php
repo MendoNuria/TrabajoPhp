@@ -80,9 +80,6 @@ $diaEspanol = [ "Domingo","Lunes", "Martes", "Miércoles", "Jueves", "Viernes", 
 //echo "El usuario se ha guardado en la bases de datos llamada " . $nombreBD . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 echo "<br>";
 
-// DUDA 
-//echo "El usuario se ha guardado en la bases de datos llamada " . $baseDatos  . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
-
 echo "<br>";
 echo "<hr>";
 

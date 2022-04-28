@@ -52,6 +52,7 @@ VALUES (\"$nombre\", \"$fechaNacimiento\", \"$color\")";
 
 if (mysqli_query($conexion, $insertar)) {
     echo "<p> El usuario $nombre se ha creado correctamente.</p>";
+    echo "El usuario se ha guardado en la bases de datos llamada " . $baseDatos  . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 } else {
     echo "<h1>Error en insercción de usuario: " . $insertar . "<br>" . mysqli_error($conexion). "</h1>";
 }
@@ -78,9 +79,6 @@ $diaEspanol = [ "Domingo","Lunes", "Martes", "Miércoles", "Jueves", "Viernes", 
 
 //echo "El usuario se ha guardado en la bases de datos llamada " . $nombreBD . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 echo "<br>";
-
-// DUDA 
-echo "El usuario se ha guardado en la bases de datos llamada " . $baseDatos  . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 
 echo "<br>";
 echo "<hr>";
