@@ -11,7 +11,6 @@
 <!--Mirar README.md-->
 
 <div class="superior">
-    <!--registro-->
     <form action="crearUsuario.php" method="post">  
         <fieldset>
             <legend> <h3>Creación de un nuevo usuario</h3> </legend>
@@ -48,8 +47,7 @@
 <br><br>
 <br><br><br><br>
     <div class="inferior">
-        <!--login-->
-        <form action="login1.php" method="post">
+        <form action="login.php" method="post">
             <fieldset>
                 <legend> <h3> Consulta datos usuario</h3> </legend>
                     <label> Escribe tu nombre de usuario:<p> <input type="text" name="login" placeholder="Pon tu nombre"></p></label>

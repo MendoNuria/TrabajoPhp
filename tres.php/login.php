@@ -15,7 +15,7 @@
     $nombre     = $_POST["usuario"];
     $fechaNacimiento  = $_POST["fechaNac"];
     $color       = $_POST["color"];
-
+    $usuario = $_POST["login"];
           
     $servidor     = "localhost";
     $usuarioBD    = "nuria";
@@ -24,14 +24,16 @@
     $nombreTablaBD= "datos";
 
       
-
+/*
 $conexion = mysqli_connect("localhost", "nuria", "nuria", "trabajo") or
 die("Problemas con la conexión");
+*/
 
+$conexion = mysqli_connect("localhost", $usuarioBD, $contrasenaBD,  $nombreBD);
 /////////////////////  ERROR    ARREGLAR  ////////////////////////7
 
-$registros = mysqli_query($conexion, "SELECT nombre, fechanac, color FROM $nombreTablaBD ") 
-or die("El usuario " . $nombre . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>"
+$registros = mysqli_query($conexion, "SELECT * FROM  $nombreTablaBD") 
+or die("El usuario " . $usuario . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>"
 . mysqli_error($conexion));
 //or die("El usuario " . $nombre . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>");
 
@@ -41,6 +43,7 @@ or die("El usuario " . $nombre . " no se encuentra registrado <br> <img src='./i
 
 while ($reg=mysqli_fetch_array($registros))
 {
+
 echo "<p> <center>  El usuario " . $reg['nombre'] . " nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
 //////////////////////     HOROSCOPO             //////////////////////////
 
@@ -110,14 +113,35 @@ $mes = substr($reg['fechanac'],-5, 2);
          echo "<br>";
          echo "<br>";
 ///////////////////////////////////   COLOR /////////////////
-          echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-         // return $zodiaco; //  CONTROLAR ESTE RETURN <-----------
+
+
+if ($color == "rojo") {
+  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+} else if ($color == "azul") {
+  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+} else if ($color == "verde") {
+  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+} else if ($color == "marron") {
+  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+} else if ($color == "naranja") {
+  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+} else if ($color == "amarillo") {
+  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+} else if ($color == "rosa") {
+  echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+}
+
+
+
+/*
+
+         echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
+         //return $zodiaco; //  CONTROLAR ESTE RETURN <----------- SOLO SALE LA PRIMERA FILA
      
          echo "<br>";
+         echo "<p style='color: $reg[color]'>  $reg[color]  </p>";
 
-//////////////////////////   COLOR               ///////////////////////////////////////7
-
-echo "<font color= rojo> $reg[color] </font>";
+*/
 echo "<hr>";
 echo "<br>";
 echo "<hr>";

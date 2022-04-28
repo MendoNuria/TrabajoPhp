@@ -9,6 +9,9 @@
 <body>
     <?php
 
+
+
+
             //Datos que llegan del formulario
             $baseDatos = $_POST["baseDatos"];
             $tabla = $_POST["tabla"];
@@ -20,8 +23,8 @@
             $servidor     = "localhost";
             $usuarioBD    = "nuria";
             $contrasenaBD = "nuria";
-            $nombreBD     = "trabajo";
-            $nombreTablaBD= "datos";
+            $nombreBD     = "baseDatos";
+            $nombreTablaBD= "tabla";
 
 
 
@@ -30,7 +33,7 @@ function alert($mensaje){
 }
 
 // Crear conexion con la base datos
-$conexion = mysqli_connect("localhost", $usuarioBD, $contrasenaBD, $nombreBD);
+$conexion = mysqli_connect("localhost", $usuarioBD, $contrasenaBD, $baseDatos);
 
 // Check connection
 if (!$conexion) {
@@ -38,14 +41,18 @@ if (!$conexion) {
 }else{
     alert("Conectado correctamente");
 }   
-
-
+/*
 $insertar = "INSERT INTO ".$nombreTablaBD." (nombre, fechanac, color)
 VALUES (\"$nombre\", \"$fechaNacimiento\", \"$color\")";
+*/
+$insertar = "INSERT INTO ".$tabla." (nombre, fechanac, color)
+VALUES (\"$nombre\", \"$fechaNacimiento\", \"$color\")";
+
 
 
 if (mysqli_query($conexion, $insertar)) {
     echo "<p> El usuario $nombre se ha creado correctamente.</p>";
+    echo "El usuario se ha guardado en la bases de datos llamada " . $baseDatos  . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 } else {
     echo "<h1>Error en insercción de usuario: " . $insertar . "<br>" . mysqli_error($conexion). "</h1>";
 }
@@ -68,38 +75,14 @@ date_default_timezone_set("Europe/Madrid");
 $mesEspanol = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                 "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
+$diaEspanol = [ "Domingo","Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
-/* Intento de traducir el dia al español
-  $diaEspanol = date("w");   
-    if ($diaEspanol == 0) {
-      echo "<p>Domingo   </p>";
-  }else if ($diaEspanol == 1){
-      echo "<p>Lunes   </p>";
-  }else if ($diaEspanol == 2 ){
-      echo "<p> Martes  </p>";
-  }else if ($diaEspanol == 3){
-      echo "<p> Miércoles   </p>";
-  }else if ($diaEspanol == 4){
-      echo "<p> Jueves </p>";
-  }else if ($diaEspanol == 5){
-      echo "<p>Viernes </p>";
-  }else if ($diaEspanol == 6){
-    echo "<p> Sábado </p>";
-}
- */ 
-
-
-$diaEspanol = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
-
-echo "El usuario se ha guardado en la bases de datos llamada " . $nombreBD . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
+//echo "El usuario se ha guardado en la bases de datos llamada " . $nombreBD . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 echo "<br>";
-
-// DUDA 
-//echo "El usuario se ha guardado en la bases de datos llamada " . $baseDatos  . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . ".";
 
 echo "<br>";
 echo "<hr>";
 
-?>
+    ?>
 </body>
 </html>

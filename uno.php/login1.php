@@ -7,44 +7,45 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    
-           
-    $baseDatos = $_POST["baseDatos"];
+<?php    
+$baseDatos = $_POST["baseDatos"];
     $tabla = $_POST["tabla"];
     $nombre     = $_POST["usuario"];
     $fechaNacimiento  = $_POST["fechaNac"];
     $color       = $_POST["color"];
     $usuario = $_POST["login"];
-          
+
+           
     $servidor     = "localhost";
     $usuarioBD    = "nuria";
     $contrasenaBD = "nuria";
     $nombreBD     = "trabajo";
     $nombreTablaBD= "datos";
 
-      
-/*
-$conexion = mysqli_connect("localhost", "nuria", "nuria", "trabajo") or
-die("Problemas con la conexión");
-*/
 
-$conexion = mysqli_connect("localhost", $usuarioBD, $contrasenaBD,  $nombreBD);
-/////////////////////  ERROR    ARREGLAR  ////////////////////////7
+    $conexion = mysqli_connect("localhost", $usuarioBD, $contrasenaBD,  $nombreBD);
+    
+    
+    $registros = mysqli_query($conexion, "SELECT * FROM  datos WHERE nombre = '$usuario' ");
+   // or die("El usuario " . $usuario . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>"
+   // . mysqli_error($conexion));
 
-$registros = mysqli_query($conexion, "SELECT * FROM  $nombreTablaBD") 
-or die("El usuario " . $usuario . " no se encuentra registrado <br> <img src='./imagenes/llorando.jpeg'>"
-. mysqli_error($conexion));
+    $nr = mysqli_num_rows($registros);
+        
+        if ($nr == 1){
+      //  echo "Bienvenido: " . $usuario;
+      echo "<p> <center>  El usuario " . $usuario . " nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
+          }elseif ($nr == 0)
+            echo "<p> <center> El usuario " . $usuario . " no se encuentra registrado <br>  <br> <img src='./imagenes/llorando.jpeg'> . </center> . </p>  ";
 
 
-
-////////////////////////////////////////////////////////////////////////////////7
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 while ($reg=mysqli_fetch_array($registros))
 {
 
-echo "<p> <center>  El usuario " . $reg['nombre'] . " nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
+//echo "<p> <center>  El usuario " . $reg['nombre'] . " nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
 //////////////////////     HOROSCOPO             //////////////////////////
 
 $dia = substr($reg['fechanac'], -2, 2 );
@@ -60,31 +61,31 @@ $mes = substr($reg['fechanac'],-5, 2);
  
     
           if (($mes == 1 && $dia > 19)  || ($mes == 2 && $dia < 19)) {
-            echo  "<p><center> El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Acuario".  "</center>". "</p>";
+            echo  "<p><center> El usuario $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Acuario".  "</center>". "</p>";
             echo "<br>";
             echo "<center><img src='./imagenes/acuario.jpg'> ";
           } elseif (($mes == 2 && $dia > 18)  || ($mes == 3 && $dia < 21)) {
-            echo  "<p><center> El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Piscis" .  "</center>". "</p>" ;
+            echo  "<p><center> El usuario  $usuariotiene el siguiente signo zodiaco de " . $zodiaco = "Piscis" .  "</center>". "</p>" ;
             echo "<br>";
             echo "<center><img src='./imagenes/piscis.jpg'> ";
           } elseif (($mes == 3 && $dia > 20)  || ($mes == 4 && $dia < 20)) {
-            echo  "<p> <center>El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Aries" .  "</center>". "</p>" ;
+            echo  "<p> <center>El usuario  $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Aries" .  "</center>". "</p>" ;
             echo "<br>";
             echo "<center><img src='./imagenes/aries.jpg'> ";
           } elseif (($mes == 4 && $dia > 19)  || ($mes == 5 && $dia < 21)) {
-            echo  "<p> <center>El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Tauro" .  "</center>".  "</p>";
+            echo  "<p> <center>El usuario  $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Tauro" .  "</center>".  "</p>";
             echo "<br>";
             echo "<center> <img  src='./imagenes/tauro.jpg' > </center>";
           } elseif (($mes == 5 && $dia > 20)  || ($mes == 6 && $dia < 21)){
-            echo  "<p> <center>El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Géminis" .  "</center>".  "</p>";
+            echo  "<p> <center>El usuario   $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Géminis" .  "</center>".  "</p>";
             echo "<br>";
             echo "<center><img src='./imagenes/geminis.jpg'> ";
           } elseif (($mes == 6 && $dia > 20)  || ($mes == 7 && $dia < 23)) {
-            echo "<p><center> El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Cáncer" .  "</center>".  "</p>";
+            echo "<p><center> El usuario   $usuario   tiene el siguiente signo zodiaco de " . $zodiaco = "Cáncer" .  "</center>".  "</p>";
             echo "<br>";
             echo "<center><img src='./imagenes/cancer.jpg'> ";
           } elseif (($mes == 7 && $dia > 22)  || ($mes == 8 && $dia < 23)) {
-            echo "<p> <center>El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Leo" .  "</center>".  "</p>";
+            echo "<p> <center>El usuario    $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Leo" .  "</center>".  "</p>";
             echo "<br>";
             echo "<center><img src='./imagenes/leo.jpg'> ";
           } elseif (($mes == 8 && $dia > 22)  || ($mes == 9 && $dia < 23)) {
@@ -92,19 +93,19 @@ $mes = substr($reg['fechanac'],-5, 2);
             echo "<br>";
             echo "<center><img src='./imagenes/virgo.jpg'> ";
           } elseif (($mes == 9 && $dia > 22)  || ($mes == 10 && $dia < 23)) {
-            echo "<p> <center>El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Libra" .  "</center>".  "</p>";
+            echo "<p> <center>El usuario    $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Libra" .  "</center>".  "</p>";
             echo "<br>";
             echo "<center><img src='./imagenes/libra.jpg'> ";
           } elseif (($mes == 0 && $dia > 22) || ($mes == 11 && $dia < 22)) {
-            echo "<center>El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Escorpio" .  "</center>".  "</p>";
+            echo "<center>El usuario   $usuariotiene el siguiente signo zodiaco de " . $zodiaco = "Escorpio" .  "</center>".  "</p>";
             echo "<br>";
             echo "<center><img src='./imagenes/escorpio.jpg'> ";
           } elseif (($mes == 11 && $dia > 21) || ($mes == 12 && $dia < 22)) {
-            echo "<center>El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Sagitario" .  "</center>". "</p>";
+            echo "<center>El usuario   $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Sagitario" .  "</center>". "</p>";
             echo "<br>";
             echo "<center><img src='./imagenes/sagitario.jpg' > ";
           } elseif (($mes == 12 && $dia > 21) || ($mes == 1 && $dia < 20)) {
-            echo "<p><center> El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Capricornio" . "</center>". "</p>";
+            echo "<p><center> El usuario   $usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Capricornio" . "</center>". "</p>";
             echo "<br>";
             echo "<p><center> <img src='./imagenes/capricornio.jpg'> </center> </p>";
           }
@@ -113,8 +114,8 @@ $mes = substr($reg['fechanac'],-5, 2);
          echo "<br>";
          echo "<br>";
 ///////////////////////////////////   COLOR /////////////////
-echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
-/*
+
+
 if ($color == "rojo") {
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
 } else if ($color == "azul") {
@@ -130,7 +131,7 @@ if ($color == "rojo") {
 } else if ($color == "rosa") {
   echo "<center> Su color preferido es el " . $reg['color'] . "</center> " . "<br>";
 }
-*/
+
 
 
 /*
@@ -147,8 +148,14 @@ echo "<br>";
 echo "<hr>";
 
 }
-mysqli_close($conexion);
+
+
+
+
+
+
+    mysqli_close($conexion);
     ?>
+
 </body>
 </html>
-
