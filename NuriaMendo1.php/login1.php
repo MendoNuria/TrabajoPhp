@@ -18,9 +18,9 @@ $baseDatos = $_POST["baseDatos"];
 
            
     $servidor     = "localhost";
-    $usuarioBD    = "nuria";
+    $usuarioBD    = "NuriaBD";
     $contrasenaBD = "nuria";
-    $nombreBD     = "trabajo";
+    $nombreBD     = "TrabajoFinal";
     $nombreTablaBD= "datos";
 
 
@@ -57,7 +57,7 @@ $baseDatos = $_POST["baseDatos"];
 
 while ($reg=mysqli_fetch_array($registros))
 {
-  echo "<p> <center>  El usuario   <strong> " . $reg['nombre'] . "  </strong> nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
+  echo "<p> <center>  El usuario  <strong> " . $reg['nombre'] . " </strong> nació el dia "  . date ('d-m-Y', strtotime ($reg['fechanac'])) . "</center> ". "<br>"." </p>";
 //////////////////////     HOROSCOPO             //////////////////////////
 
 $dia = substr($reg['fechanac'], -2, 2 );
@@ -111,47 +111,16 @@ $mes = substr($reg['fechanac'],-5, 2);
           } elseif (($mes == 12 && $dia > 21) || ($mes == 1 && $dia < 20)) {
             echo "<p><center> El usuario  $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Capricornio" . "</center>". "</p>";
             echo "<br>";
-            echo "<p><center> <img class=foto  src='./imagenes/capricornio.jpg'> </center> </p>";
+            echo "<p><center>   <img class=foto  src='./imagenes/capricornio.jpg'> </center> </p>";
           }
 
         
          echo "<br>";
          echo "<br>";
-///////////////////////////////////   COLOR    PREFERIDO  //////////////////////////////////////////////////
+///////////////////////////////////   COLOR HEXADECIMAL /////////////////
+
 $color = ($reg['color']);
-
-if ($reg['color'] == "rojo") {
- 
-  echo "<center>" . "<p> Su color preferido es el  <font color = 'red'> " . $reg['color']. "." . "</font>" . "</p> "."</center>";
-  echo "<br>";
-
-} else if ($reg['color'] == "azul") {
-  echo "<center>" . "<p> Su color preferido es el  <font color = 'blue'> " . $reg['color']. "." . "</font>" . "</p> "."</center>";
-  echo "<br>";
-
-} else if ($reg['color'] == "verde") {
-  echo "<center>" . "<p> Su color preferido es el  <font color = 'green'> " . $reg['color']. "." . "</font>" . "</p> "."</center>";
-  echo "<br>";
-
-} else if ($reg['color'] == "marron") {
-  echo "<center>" . "<p> Su color preferido es el  <font color = 'brown'> " . $reg['color']. "." . "</font>" . "</p> "."</center>";
-  echo "<br>";
-
-} else if ($reg['color'] == "naranja") {
-  echo "<center>" . "<p> Su color preferido es el  <font color = 'orange'> " . $reg['color']. "." . "</font>" . "</p> "."</center>";
-  echo "<br>";
- 
-} else if ($reg['color'] == "amarillo") {
-  echo "<center>" . "<p> Su color preferido es el  <font color = 'yellow'> " . $reg['color']. "." .  "</font>" . "</p> "."</center>";
-  echo "<br>";
-  
-} else if ($reg['color'] == "rosa") {
-  echo "<center>" . "<p> Su color preferido es el  <font color = 'pink'> " . $reg['color']. "." .  "</font>" . "</p> "."</center>";
-  echo "<br>";
-}
-
-
-
+echo "<center>" . "<p> Su color preferido es el  <font color = $reg[color]> " . $reg['color']. "." . "</font>" . "</p> "."</center>";
 echo "<hr>";
 echo "<a href='./index.php'>Volver a la pagina de registro / login </a>";
 echo "<br>";
@@ -159,7 +128,11 @@ echo "<br>";
 echo "<hr>";
 
 
+
 }
+
+
+
 
 
     mysqli_close($conexion);

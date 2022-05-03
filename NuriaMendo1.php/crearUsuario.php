@@ -22,7 +22,7 @@
             
             //datos de la base de datos. VALORES DE LA CONEXION
             $servidor     = "localhost";
-            $usuarioBD    = "nuria";
+            $usuarioBD    = "NuriaBD";
             $contrasenaBD = "nuria";
             $nombreBD     = "baseDatos";
             $nombreTablaBD= "tabla";
@@ -55,7 +55,7 @@ $diaEspanol = [ "Domingo","Lunes", "Martes", "Miércoles", "Jueves", "Viernes", 
 if (mysqli_query($conexion, $insertar)) {
     echo "<p> El usuario <strong> $nombre </strong> se ha creado correctamente. </p>";
     echo "<hr>";
-    echo "<p> El usuario se ha guardado en la bases de datos llamada " . $baseDatos . " a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . "." . "</p>";
+    echo "<p> El usuario se ha guardado en la bases de datos llamada  <strong> " . $baseDatos . "  </strong> a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . "." . "</p>";
 } else {
     echo "<h1>Error en insercción de usuario: " . $insertar . "<br>" . mysqli_error($conexion). "</h1>";
 }
@@ -78,8 +78,9 @@ echo "<hr>";
 $hoy = date("Y-m-d");
 $edad = date_diff(date_create($fechaNacimiento), date_create($hoy)) ;
 
-echo "<p> $nombre tiene una edad de " .$edad->format('%y') . " años." . "</p>";
+echo "<p> <strong> $nombre  </strong>tiene una edad de " .$edad->format('%y') . " años." . "</p>";
 echo "<br>";
+
 echo "<a href='./index.php'>Volver a la pagina de registro / login </a>";
 
     ?>

@@ -41,6 +41,7 @@ MariaDB [trabajo]> show columns from datos;
 
 
 
+
 2.- Al realizar la conexión correctamente e insertar campos en la tabla “datos”  se ve que en el campo ‘fechanac’ la forma de ingresar el formato fecha  lo hace de forma distinta al que lo hace PHP.
 En Mysql Y-m-d   y en Php d-m-Y.
 
