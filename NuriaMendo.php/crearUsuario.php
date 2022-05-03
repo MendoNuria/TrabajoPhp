@@ -19,7 +19,7 @@
             $nombre     = $_POST["usuario"];
             $fechaNacimiento  = $_POST["fechaNac"];
             $color       = $_POST["color"];
-
+            
             //datos de la base de datos. VALORES DE LA CONEXION
             $servidor     = "localhost";
             $usuarioBD    = "nuria";

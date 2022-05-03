@@ -52,7 +52,7 @@
         <form action="login1.php" method="post">
             <fieldset>
                 <legend> <h3> Consulta datos usuario</h3> </legend>
-                    <label> Escribe tu nombre de usuario:<p> <input type="text" name="login" placeholder="Pon tu nombre"></p></label>
+                    <label> Escribe tu nombre de usuario:<p> <input type="text" name="usuario" placeholder="Pon tu nombre"></p></label>
                     <input type="submit" value="Login">    
                     <input type="reset" value="Borrar"><br>
             </fieldset>
