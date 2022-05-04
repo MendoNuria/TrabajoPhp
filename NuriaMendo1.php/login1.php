@@ -67,51 +67,51 @@ $mes = substr($reg['fechanac'],-5, 2);
           if (($mes == 1 && $dia > 19)  || ($mes == 2 && $dia < 19)) {
             echo  "<p><center> El signo el zodiaco de $nombre es " . $zodiaco = "Acuario".  "</center>". "</p>";
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/acuario.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-acuario.png'> ";
           } elseif (($mes == 2 && $dia > 18)  || ($mes == 3 && $dia < 21)) {
             echo  "<p><center> El usuario $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Piscis" .  "</center>". "</p>" ;
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/piscis.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-piscis.png'> ";
           } elseif (($mes == 3 && $dia > 20)  || ($mes == 4 && $dia < 20)) {
             echo  "<p> <center>El usuario $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Aries" .  "</center>". "</p>" ;
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/aries.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-aries.png'> ";
           } elseif (($mes == 4 && $dia > 19)  || ($mes == 5 && $dia < 21)) {
             echo  "<p> <center>El usuario $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Tauro" .  "</center>".  "</p>";
             echo "<br>";
-            echo "<center> <img class=foto src='./imagenes/tauro.jpg' > </center>";
+            echo "<center> <img class=foto src='./imagenes/ico-tauro.png' > </center>";
           } elseif (($mes == 5 && $dia > 20)  || ($mes == 6 && $dia < 21)){
             echo  "<p> <center>El usuario  $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Géminis" .  "</center>".  "</p>";
             echo "<br>";
-            echo "<center><img  class=foto src='./imagenes/geminis.jpg'> ";
+            echo "<center><img  class=foto src='./imagenes/ico-geminis.png'> ";
           } elseif (($mes == 6 && $dia > 20)  || ($mes == 7 && $dia < 23)) {
             echo "<p><center> El usuario  $nombre   tiene el siguiente signo zodiaco de " . $zodiaco = "Cáncer" .  "</center>".  "</p>";
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/cancer.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-cancer.png'> ";
           } elseif (($mes == 7 && $dia > 22)  || ($mes == 8 && $dia < 23)) {
             echo "<p> <center>El usuario   $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Leo" .  "</center>".  "</p>";
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/leo.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-leo.png'> ";
           } elseif (($mes == 8 && $dia > 22)  || ($mes == 9 && $dia < 23)) {
             echo "<p><center> El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Virgo" .  "</center>".  "</p>";
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/virgo.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-virgo.png'> ";
           } elseif (($mes == 9 && $dia > 22)  || ($mes == 10 && $dia < 23)) {
             echo "<p> <center>El usuario   $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Libra" .  "</center>".  "</p>";
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/libra.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-libra.png'> ";
           } elseif (($mes == 0 && $dia > 22) || ($mes == 11 && $dia < 22)) {
             echo "<center>El usuario  $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Escorpio" .  "</center>".  "</p>";
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/escorpio.jpg'> ";
+            echo "<center><img class=foto src='./imagenes/ico-escorpio.png'> ";
           } elseif (($mes == 11 && $dia > 21) || ($mes == 12 && $dia < 22)) {
             echo "<center>El usuario  $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Sagitario" .  "</center>". "</p>";
             echo "<br>";
-            echo "<center><img class=foto src='./imagenes/sagitario.jpg' > ";
+            echo "<center><img class=foto src='./imagenes/ico-sagitario.png' > ";
           } elseif (($mes == 12 && $dia > 21) || ($mes == 1 && $dia < 20)) {
             echo "<p><center> El usuario  $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Capricornio" . "</center>". "</p>";
             echo "<br>";
-            echo "<p><center>   <img class=foto  src='./imagenes/capricornio.jpg'> </center> </p>";
+            echo "<p><center>   <img class=foto  src='./imagenes/ico-capricornio.png'> </center> </p>";
           }
 
         
@@ -120,6 +120,7 @@ $mes = substr($reg['fechanac'],-5, 2);
 ///////////////////////////////////   COLOR HEXADECIMAL /////////////////
 
 $color = ($reg['color']);
+//echo "<font color =$reg[color]".  $color . "</font>";
 echo "<center>" . "<p> Su color preferido es el  <font color = $reg[color]> " . $reg['color']. "." . "</font>" . "</p> "."</center>";
 echo "<hr>";
 echo "<a href='./index.php'>Volver a la pagina de registro / login </a>";
