@@ -53,11 +53,15 @@ $mesEspanol = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
 $diaEspanol = [ "Domingo","Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
 if (mysqli_query($conexion, $insertar)) {
-    echo "<p> El usuario <strong> $nombre </strong> se ha creado correctamente. </p>";
+    echo "<p> <center>El usuario <strong> $nombre </strong> se ha creado correctamente. </center> </p>";
+    echo "<br>";
     echo "<hr>";
-    echo "<p> El usuario se ha guardado en la bases de datos llamada  <strong> " . $baseDatos . "  </strong> a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . "." . "</p>";
+    echo "<br>";
+    echo "<p> <center> El usuario se ha guardado en la bases de datos llamada  <strong> " . $baseDatos . "  </strong> a las " .  date("H:i ") . " del " . $diaEspanol[date("w")] . " " . date ("d") . " de " . $mesEspanol[date("m")-1] . " de " . date("Y") . "." . "<center>" . "</p>";
+    echo "<br>";
 } else {
     echo "<h1>Error en insercción de usuario: " . $insertar . "<br>" . mysqli_error($conexion). "</h1>";
+
 }
 echo "<hr>";
 
@@ -77,8 +81,8 @@ echo "<hr>";
 
 $hoy = date("Y-m-d");
 $edad = date_diff(date_create($fechaNacimiento), date_create($hoy)) ;
-
-echo "<p> <strong> $nombre  </strong>tiene una edad de " .$edad->format('%y') . " años." . "</p>";
+echo "<br>";
+echo "<p><center> <strong> $nombre  </strong>tiene una edad de " .$edad->format('%y') . " años." . "<center>" . "</p>";
 echo "<br>";
 
 echo "<a href='./index.php'>Volver a la pagina de registro / login </a>";

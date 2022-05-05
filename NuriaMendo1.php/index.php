@@ -10,34 +10,32 @@
 <body>
 <!--Mirar README.md-->
 
+<br><br>
 <div class="superior">
     <!--registro-->
     <form action="crearUsuario.php" method="post">  
-        <fieldset>
-            <legend> <h3>Creación de un nuevo usuario</h3> </legend>
-                <label> <center>   Nombre  de la base de datos:<center><p><input type="text" name="baseDatos" placeholder="Nombre de la base de datos"> </center> </p></label>
-                <label> <center>   Nombre de la tabla:</center><p>  <center> <input type="text" name="tabla" placeholder="Nombre de la tabla "> </center></p></label>
-                <label> <center> Nombre de usuario:</center><p> <center><input type="text" name="usuario" placeholder="Pon tu nombre"> </center></p></label>
-                <label> <center> Fecha de nacimiento:</center> <p> <center> <input type="datetime" name="fechaNac" placeholder="YYYY-mm-dd"> </center></p></label>
-                <label><center> Color preferido: </center><p><center> <input type="color" name = "color"></center></p> </label>
+ 
+            <legend> <h2>Creación de un nuevo usuario</h2> </legend><br>
+                <label>  Nombre  de la base de datos:<p><input type="text" name="baseDatos" placeholder="Nombre de la base de datos"> </p></label><br>
+                <label>  Nombre de la tabla:<p> <input type="text" name="tabla" placeholder="Nombre de la tabla "> </p></label><br>
+                <label>  Nombre de usuario:<p><input type="text" name="usuario" placeholder="Pon tu nombre"> </p></label><br>
+                <label>  Fecha de nacimiento: <p><input type="datetime" name="fechaNac" placeholder="YYYY-mm-dd"> </p></labe<br>
+                <p></p><br>
+                <label> Color preferido: <input type="color" name = "color"> </label>
+                <p></p><br>
                 <input type="submit" value="Crear nuevo usuario">
                 <input type="reset" value="Borrar"><br>
-        </fieldset>
     </form>
-</div>
-<br><br>
-<br><br><br><br>
+</div><br><br>
     <div class="inferior">
         <!--login-->
         <form action="login1.php" method="post">
-            <fieldset>
-                <legend> <h3> Consulta datos usuario</h3> </legend>
-                    <label> Escribe tu nombre de usuario:<p> <input type="text" name="usuario" placeholder="Pon tu nombre"></p></label>
+                <legend> <h2> Consulta datos usuario</h2> </legend><br>
+                    <label> Escribe tu nombre de usuario: <p><input type="text" name="usuario" placeholder="Pon tu nombre"></p></label>
+                    <p></p><br>
                     <input type="submit" value="Login">    
                     <input type="reset" value="Borrar"><br>
-            </fieldset>
         </form>
     </div>
-
 </body>
 </html>

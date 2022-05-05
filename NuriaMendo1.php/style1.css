@@ -1,8 +1,14 @@
 
 
 body{
-    background-color: rgb(236, 217, 191);
+    background-color:black;
     
+}
+.emoticono{
+    font-family: "Sofia", sans-serif;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px #ababab;
+    color: white;
 }
 .superior, .inferior {
 

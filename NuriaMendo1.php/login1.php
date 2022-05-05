@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style1.css">
 </head>
 <body>
 <?php    
@@ -45,12 +45,12 @@ $baseDatos = $_POST["baseDatos"];
 
      echo "<p> <center>  El usuario " . $nombre . " nació el dia "  . date ('d-m-Y', strtotime($reg['fechanac'])) . "</center> ". "<br>"." </p>";
     */  
-          }elseif ($registrarse == 0)
-            echo "<p> <center> El usuario <strong> $nombre </strong> no se encuentra registrado.  <br> <br> <br>
-            <img src = './imagenes/watching-you.gif'> 
+          }elseif ($registrarse == 0) 
+            echo "<p class = 'emoticono'> <center><font color = white> El usuario  $nombre no se encuentra registrado. </font> <br> <br> <br> .
+            <img src = './imagenes/3Whh.gif'>
             . </center> . </p>  ";
 
-      
+            echo "<a href='./index.php'>Volver a la pagina de registro / login </a>";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,6 +91,7 @@ $mes = substr($reg['fechanac'],-5, 2);
           } elseif (($mes == 7 && $dia > 22)  || ($mes == 8 && $dia < 23)) {
             echo "<p> <center>El usuario   $nombre tiene el siguiente signo zodiaco de " . $zodiaco = "Leo" .  "</center>".  "</p>";
             echo "<br>";
+            
             echo "<center><img class=foto src='./imagenes/ico-leo.png'> ";
           } elseif (($mes == 8 && $dia > 22)  || ($mes == 9 && $dia < 23)) {
             echo "<p><center> El usuario tiene el siguiente signo zodiaco de " . $zodiaco = "Virgo" .  "</center>".  "</p>";
@@ -131,10 +132,6 @@ echo "<hr>";
 
 
 }
-
-
-
-
 
     mysqli_close($conexion);
     ?>
